@@ -1,2 +1,3 @@
+vertex0 : 10
 vertex3 : 8
-Sum of Even Value Vertexes = 8
+Sum of Even Value Vertexes = 18

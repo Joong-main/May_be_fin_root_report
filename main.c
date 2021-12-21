@@ -95,10 +95,6 @@ void bfs_mat(GraphType* g, int v) { //bfs_mat(GraphType* g, int v)함수 정의
                 visited[w] = TRUE;
                 printf("NODE %d ", w);  //visited[w] = 1, "NODE w" 출력
 
-                if (vertex_arr[w] % 2 == 0) {
-                    sum_of_even_value_vertexes += vertex_arr[w]; // 만일 방문한 노드의 값아 짝수라면 sum_of_even_value_vertexes 변수에 더함
-                }
-                
                 enqueue(&q, w);     // QueueType* q가 full 이면 "Queue is full." 출력, q->rear + 1, queue[rear]에 w 대입
             }
         }
@@ -116,7 +112,7 @@ int main(void) {
     //테스트 샘플 노드 생성
 
     
-    insert_vertex(g, 9);
+    insert_vertex(g, 10);
     insert_vertex(g, 11);
     insert_vertex(g, 3);
     insert_vertex(g, 8);
@@ -152,7 +148,20 @@ int main(void) {
     */
 
 
+    for (int i = 0; i < ver_cnt; i++) {
+        if (visited[i] == 1 && vertex_arr[i] % 2 == 0) {
+            sum_of_even_value_vertexes += vertex_arr[i];
+        }
+    }
 
+
+
+
+
+    //제출전 삭제 하기!!!
+    for (int i = 0; i < ver_cnt; i++) {
+        printf("%d번 노드 방문 여부:%d\n", i,visited[i]);
+    }
 
 
     // root.txt 파일 입력 부분
